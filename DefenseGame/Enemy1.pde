@@ -28,7 +28,7 @@ class Enemy1 {
     pushMatrix();
     pushStyle();
     translate(x, y);
-    rotate(targetAngle);    
+    rotate(targetAngle);
     imageMode(CENTER);
     image(img, 0, 0);
     popStyle();

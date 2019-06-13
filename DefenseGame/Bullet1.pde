@@ -5,6 +5,7 @@ class Bullet1 {
   float speed;
   float targetAngle;
   PImage img;
+  //decide player one is shooting
   boolean isOne;
   
   Bullet1(float x, float y, float targetAngle){
