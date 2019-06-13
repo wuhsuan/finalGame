@@ -18,6 +18,7 @@ int score = 0;
 Model model;
 Player1 player1;
 Enemy1 enemy1s[];
+Enemy2 enemy2s[];
 Item[] items;
 Player2 player2;
 int maxEnemyCount = 16;
@@ -56,6 +57,7 @@ void setup(){
   
   model = new Model();
   enemy1s = new Enemy1[maxEnemyCount];
+  enemy2s = new Enemy2[maxEnemyCount];
   player1 = new Player1();
   items= new Item[maxItemCount];
   player2 = new Player2();
@@ -91,6 +93,19 @@ void spawnEnemy(){
       break;
     }
   }
+  
+   for(int i = 0; i < enemy2s.length; i++){
+    if(enemy2s[i] == null || !enemy2s[i].isAlive){
+      float angle = random(TWO_PI);
+      float distance = random(400,600);
+      float x= width / 2 + cos(angle) * distance;
+      float y= height / 2 + sin(angle) * distance;
+      enemy2s[i] = new Enemy2(x,y);
+       //enemy2s[i] = (random(1) > specialEnemySpawnChance) ? new Enemy2(x, y) : new specialEnemy2(x, y);
+      break;
+    }
+  }
+  
 }
 
 void draw(){
@@ -116,7 +131,7 @@ void draw(){
     spawnTimer++;
     if(spawnTimer >= spawnInterval){
       spawnTimer = 0;
-      spawnSoldier();
+      spawnEnemy();
     }
     
     //Item spawn timer
@@ -135,13 +150,24 @@ void draw(){
         }
       }
     }
+    
+     for(int i = 0; i < enemy2s.length; i++){
+      if(enemy2s[i] != null && enemy2s[i].isAlive){
+        enemy2s[i].update();
+        enemy2s[i].display();
+        if(model.isHit(enemy2s[i])){
+          gameState = GAME_OVER;
+        }
+      }
+    }
+    
     for(int i = 0; i < items.length; i++){
       if(items[i] != null && items[i].isAlive){
         items[i].update();
-        items[i].display();
-        
+        items[i].display();        
       }
     }
+    
     if(gameState == GAME_OVER){
       drawGameOverText();
     }
@@ -213,18 +239,7 @@ void keyReleased(){
   }
 }*/
 
-void spawnSoldier(){
-  for(int i = 0; i < enemy1s.length; i++){
-    if(enemy1s[i] == null || !enemy1s[i].isAlive){
-      float angle = random(TWO_PI);
-      float distance = random(400, 600);
-      float x = width / 2 + cos(angle) * distance;
-      float y = height / 2 + sin(angle) * distance;
-      enemy1s[i] = new Enemy1(x, y);
-      break;
-    }
-  }
-}
+
 void spawnItem_1(){
   for(int i = 0; i < items.length; i++){
     if(items[i] == null || !items[i].isAlive){
