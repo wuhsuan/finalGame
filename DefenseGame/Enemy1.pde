@@ -7,12 +7,13 @@ class Enemy1 {
   float targetAngle;
   PImage img;
   boolean isOne;
-  
+   float damage;
   Enemy1(float x, float y){
     this.x = x;
     this.y = y;
     health = 10;
     speed = 0.5;
+    damage=10;
     scoreValue = 1;
     img = enemy1Img;
     targetAngle = atan2(height / 2 - y, width / 2 - x);

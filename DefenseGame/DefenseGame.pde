@@ -146,8 +146,8 @@ void draw(){
         enemy1s[i].update();
         enemy1s[i].display();
         if(model.isHit(enemy1s[i])){
-          gameState = GAME_OVER;
-        }
+         model.hurt(5);
+       }
       }
     }
     
@@ -156,7 +156,8 @@ void draw(){
         enemy2s[i].update();
         enemy2s[i].display();
         if(model.isHit(enemy2s[i])){
-          gameState = GAME_OVER;
+          
+          model.hurt(5);
         }
       }
     }
@@ -174,6 +175,13 @@ void draw(){
     break;
     
     case GAME_OVER:
+        enemy1s = new Enemy1[maxEnemyCount];
+            enemy2s = new Enemy2[maxEnemyCount];
+            player1 = new Player1();
+            player2 = new Player2();
+            score = 0;
+            model = new Model();
+            items= new Item[maxItemCount];
     break;
   }
 }
@@ -209,17 +217,12 @@ void keyPressed(){
     break;
     
     case GAME_OVER:
-      if(key==CODED){
-        switch(keyCode){
-          case 'r':
-            enemy1s = new Enemy1[maxEnemyCount];
-            player1 = new Player1();
-            player2 = new Player2();
-            score = 0;
+      if(key=='r'){
+        
             gameState = GAME_RUN;
           break;
         }
-      }
+      
     break;
   }
 }
