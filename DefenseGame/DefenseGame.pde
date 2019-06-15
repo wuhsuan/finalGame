@@ -29,9 +29,9 @@ int spawnItemInterval=30;
 int spawnTimer = 0;
 int spawnItemTimer=0;
 
-boolean clockWise1;
-boolean cClockWise1;
-boolean shoot1;
+boolean clockWise1,clockWise2;
+boolean cClockWise1,cClockWise2;
+boolean shoot1,shoot2;
 
 float scoreTextMinSize = 72;
 float scoreTextMaxSize = 96;
@@ -192,16 +192,29 @@ void keyPressed(){
           case UP:
           shoot1 = true;
           break;
+          
         }
-      }
+        }else if (key=='d'){
+          clockWise2 = true;
+          break;
+        }else if(key=='a'){
+          cClockWise2 = true;
+        }
+        else if(key=='w'){
+          shoot2 = true;
+          break;
+        }
+      
+      
     break;
     
     case GAME_OVER:
       if(key==CODED){
         switch(keyCode){
-          case 'R':
+          case 'r':
             enemy1s = new Enemy1[maxEnemyCount];
             player1 = new Player1();
+            player2 = new Player2();
             score = 0;
             gameState = GAME_RUN;
           break;
@@ -210,6 +223,7 @@ void keyPressed(){
     break;
   }
 }
+
 
 void keyReleased(){
   switch(gameState){
@@ -225,8 +239,19 @@ void keyReleased(){
           case UP:
             shoot1 = false;
           break;
+          
         }
       }
+      else if (key=='d'){
+          clockWise2 = false;
+          break;
+        }else if(key=='a'){
+          cClockWise2 = false;
+        }
+        else if(key=='w'){
+          shoot2 = false;
+          break;
+        }
     break;
   }
 }

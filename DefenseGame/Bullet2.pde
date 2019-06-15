@@ -1,4 +1,4 @@
-class Bullet2 {
+ class Bullet2  {
   boolean isAlive = true;
   float damage;
   float x, y;
@@ -8,6 +8,7 @@ class Bullet2 {
   boolean isOne;
   
   Bullet2(float x, float y, float targetAngle){
+    
     this.x = x;
     this.y = y;
     speed = 5;
