@@ -68,7 +68,7 @@ class Player1 {
   //item detaction
    boolean isHit(Item item){
     
-    return item != null && item.isAlive && dist(width / 2, height / 2, item.x, item.y) <= hitRadius + item.getRadius();
+    return item != null && item.isAlive && dist(width/2+(playerRadius-towerTopXOffset)*cos(playerCurrentAngle), height / 2+(playerRadius-towerTopXOffset)*sin(playerCurrentAngle), item.x, item.y) <= hitRadius + item.getRadius();
     
   }
   

@@ -6,6 +6,7 @@ class Model{
   
    void hurt(float damage){
     modelHealth -= damage;
+    
     if(modelHealth <= 0 && isAlive){
       isAlive = false;
       gameState = GAME_OVER;

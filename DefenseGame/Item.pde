@@ -22,7 +22,11 @@ Item(float x, float y){
   move();
  }
   
+  boolean eat(){
+  return isAlive=false;
   
+  
+  }
    void move() {
            x += cos(targetAngle) * speed;
       y += sin(targetAngle) * speed;
@@ -44,4 +48,13 @@ Item(float x, float y){
   float getRadius(){
     return img.width / 2;
   }
+   void onHit(Player1 player1){
+     
+    
+    isAlive = false;
+  }
+   boolean isHit(Enemy1 enemy){
+    return enemy != null && enemy.isAlive && dist(x, y, enemy.x, enemy.y) <= getRadius() + enemy.getRadius();
+  }
+
 }

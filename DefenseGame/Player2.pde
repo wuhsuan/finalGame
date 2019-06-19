@@ -60,7 +60,10 @@ class Player2 extends Player1{
     popMatrix();
     popStyle();
   }
-  
-
+  boolean isHit(Item item){
+    
+    return item != null && item.isAlive && dist(width/2+(playerRadius-towerTopXOffset)*cos(playerCurrentAngle), height / 2+(playerRadius-towerTopXOffset)*sin(playerCurrentAngle), item.x, item.y) <= hitRadius + item.getRadius();
+    
+  }
 
 }

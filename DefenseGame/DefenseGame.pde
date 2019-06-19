@@ -163,9 +163,14 @@ void draw(){
     for(int i = 0; i < items.length; i++){
       if(items[i] != null && items[i].isAlive){
         items[i].update();
-        items[i].display();        
+        items[i].display();  
+        if(player1.isHit(items[i])){
+         items[i].eat();
       }
-    }
+      if(player2.isHit(items[i])){
+         items[i].eat();
+      }
+    }}
     
     if(gameState == GAME_OVER){
       drawGameOverText();
