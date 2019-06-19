@@ -218,6 +218,10 @@ void keyPressed(){
       if(key=='r'){
         
             gameState = GAME_RUN;
+            clockWise1 = false;
+            cClockWise1 = false;
+            clockWise2 = false;
+            cClockWise2 = false;
           break;
         }
       

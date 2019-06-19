@@ -6,6 +6,7 @@ class Enemy2 {
   float speed;
   float targetAngle;
   PImage img;
+  int size;
   boolean isOne;
   
   Enemy2(float x, float y){
@@ -15,6 +16,7 @@ class Enemy2 {
     speed = 0.5;
     scoreValue = 1;
     img = enemy2Img;
+    size = 40;
     targetAngle = atan2(height / 2 - y, width / 2 - x);
     isOne = true;
   }
@@ -30,7 +32,7 @@ class Enemy2 {
     translate(x, y);
     rotate(targetAngle);    
     imageMode(CENTER);
-    image(img, 0, 0);
+    image(img, 0, 0,size,size);
     popStyle();
     popMatrix();
   }
