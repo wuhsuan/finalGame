@@ -102,7 +102,8 @@ void spawnEnemy(){
       float distance = random(400, 600);
       float x = width / 2 + cos(angle) * distance;
       float y = height / 2 + sin(angle) * distance;
-      enemy1s[i] = new Enemy1(x, y);
+      enemy1s[i] = (random(1) > 0.2) ? new Enemy1(x, y) : new SpecialEnemy1(x, y);
+      enemy1s[i] = (random(1) > 0.09) ? new Enemy1(x, y) : new QuickEnemy1(x, y);
       //enemy1s[i] = (random(1) > specialEnemySpawnChance) ? new Enemy(x, y) : new specialEnemy(x, y);
       break;
     }
@@ -116,6 +117,7 @@ void spawnEnemy(){
       float y= height / 2 + sin(angle) * distance;
       
        enemy2s[i] = (random(1) > 0.2) ? new Enemy2(x, y) : new SpecialEnemy2(x, y);
+       enemy2s[i] = (random(1) > 0.09) ? new Enemy2(x, y) : new QuickEnemy2(x, y);
       break;
     }
   }
