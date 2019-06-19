@@ -2,17 +2,17 @@ class Item {
   boolean isAlive=true;
   float x, y;
   float speed;
-  
+  boolean isItem=true;
   PImage img;
   float targetAngle;
   //time spawn
 //constructor
 Item(float x, float y){
     
-   speed = 0.5;
+   speed = 2;
    this.x = x;
     this.y = y;
-    img=item2Img;
+    img=item3Img;
    targetAngle = atan2(height / 2 - y, width / 2 - x);
   }
   
@@ -23,7 +23,12 @@ Item(float x, float y){
  }
   
   boolean eat(){
+  
+ 
+  
+  
   return isAlive=false;
+ 
   
   
   }
