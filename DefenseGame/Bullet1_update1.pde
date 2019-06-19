@@ -2,7 +2,7 @@ class Bullet1_update1 extends Bullet1{
 
 Bullet1_update1(float x, float y, float targetAngle){
 super(x,y,targetAngle);
-img =  bullet1Img;
+img =  bullet3Img;
 
 }
 void display() {

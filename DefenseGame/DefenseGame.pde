@@ -9,7 +9,7 @@ PImage bg, modelImg, modelUpgrateImg;
 PImage player1Img,bullet1Img,bullet3Img;
 PImage player2Img,bullet2Img,bullet4Img;
 PImage enemy1Img,enemy2Img;
-PImage itemImg,item2Img,item3Img,item4Img;
+PImage itemImg,item2Img,item3Img;
 final int BULLET1_LEVEL1 = 0;
 final int BULLET1_LEVEL2 = 1;
 PFont font;
@@ -24,7 +24,7 @@ Item[] items;
 Player2 player2;
 int maxEnemyCount = 16;
 //float specialEnemySpawnChance = 0.05;
-int maxItemCount = 8;
+int maxItemCount = 5;
 int spawnInterval = 15;
 int spawnItemInterval=30;
 int spawnTimer = 0;
@@ -55,6 +55,7 @@ void setup(){
   bullet4Img = loadImage("img/bullet4.png");
   itemImg = loadImage("img/item.png");
   item2Img = loadImage("img/item2.png");
+  item3Img = loadImage("img/item3.png");
   
   font = createFont("ObelixPro.ttf", 96, true);
   textFont(font);
@@ -66,6 +67,7 @@ void setup(){
   items= new Item[maxItemCount];
   player2 = new Player2();
   
+  
 }
 //initiallize item position
 void spawnItem(){
@@ -75,7 +77,9 @@ void spawnItem(){
       float distance = random(400, 600);
       float x = width / 2 + cos(angle) * distance;
       float y = height / 2 + sin(angle) * distance;
-      items[i] = new Item(x, y);
+      items[i]=  (random(1) > .5) ? new Item(x, y) : new Item_1(x, y);
+      
+      
       
       //chance of different object to pop
   
@@ -84,6 +88,10 @@ void spawnItem(){
     }
   }
 }
+
+
+
+
 
 
 void spawnEnemy(){
@@ -105,8 +113,8 @@ void spawnEnemy(){
       float distance = random(400,600);
       float x= width / 2 + cos(angle) * distance;
       float y= height / 2 + sin(angle) * distance;
-      enemy2s[i] = new Enemy2(x,y);
-       //enemy2s[i] = (random(1) > specialEnemySpawnChance) ? new Enemy2(x, y) : new specialEnemy2(x, y);
+      
+       enemy2s[i] = (random(1) > 0.2) ? new Enemy2(x, y) : new SpecialEnemy2(x, y);
       break;
     }
   }
@@ -141,7 +149,10 @@ void draw(){
     if(spawnItemTimer >= spawnItemInterval){
       spawnItemTimer = 0;
       spawnItem();
+      
     }
+  
+      
     
     for(int i = 0; i < enemy1s.length; i++){
       if(enemy1s[i] != null && enemy1s[i].isAlive){
@@ -170,6 +181,8 @@ void draw(){
         items[i].display();  
         if(player1.isHit(items[i])){
          items[i].eat();
+        
+         player1.setBulletType(1);
       }
       if(player2.isHit(items[i])){
          items[i].eat();
@@ -279,18 +292,6 @@ void keyReleased(){
 }*/
 
 
-void spawnItem_1(){
-  for(int i = 0; i < items.length; i++){
-    if(items[i] == null || !items[i].isAlive){
-      float angle = random(TWO_PI);
-      float distance = random(400, 600);
-      float x = width / 2 + cos(angle) * distance;
-      float y = height / 2 + sin(angle) * distance;
-      items[i] = new Item(x, y);
-      break;
-    }
-  }
-}
 
 void addScore(int value){
   score += value;
