@@ -46,7 +46,6 @@ void setup(){
   size(800, 800);
   bg = loadImage("img/bg.jpg");
   modelImg = loadImage("img/model.png");
-  modelUpgrateImg = loadImage("img/modelupgrate.png");
   enemy1Img = loadImage("img/enemy1.png");
   enemy2Img = loadImage("img/enemy2.png");
   player1Img = loadImage("img/player1.png");
@@ -160,8 +159,9 @@ void draw(){
       if(enemy1s[i] != null && enemy1s[i].isAlive){
         enemy1s[i].update();
         enemy1s[i].display();
-        if(model.isHit(enemy1s[i])){
+        if(model.isHit(enemy1s[i])&&enemy1s[i].isAlive){
          model.hurt(5);
+         enemy1s[i].isAlive = false;
        }
       }
     }
@@ -170,9 +170,9 @@ void draw(){
       if(enemy2s[i] != null && enemy2s[i].isAlive){
         enemy2s[i].update();
         enemy2s[i].display();
-        if(model.isHit(enemy2s[i])){
-          
+        if(model.isHit(enemy2s[i])&&enemy2s[i].isAlive){
           model.hurt(5);
+          enemy2s[i].isAlive = false;
         }
       }
     }
@@ -251,8 +251,10 @@ void keyPressed(){
             gameState = GAME_RUN;
             clockWise1 = false;
             cClockWise1 = false;
+            shoot1 = false;
             clockWise2 = false;
             cClockWise2 = false;
+            shoot2 = false;
           break;
         }
       
