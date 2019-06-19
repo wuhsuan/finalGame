@@ -40,7 +40,7 @@ float scoreTextSize = scoreTextMinSize;
 //spawn chances
 
 void setup(){
-  size(800, 800, P2D);
+  size(800, 800);
   bg = loadImage("img/bg.jpg");
   modelImg = loadImage("img/model.png");
   modelUpgrateImg = loadImage("img/modelupgrate.png");
@@ -115,8 +115,7 @@ void draw(){
     case GAME_RUN:  
     // draw background
    
-       
-      image(bg, 0, 0);
+       image(bg,width/2,height/2);
     
     drawScore();
     
