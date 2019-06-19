@@ -8,6 +8,7 @@ class Player1 {
   float playerCurrentAngle = 0;
   boolean isOne = true;
   float hitRadius = 26;
+  int currentBulletType =BULLET1_LEVEL1;
   
   
   Bullet1 [] bullet1s;
@@ -39,6 +40,11 @@ class Player1 {
       if(bullet1s[i] == null || !bullet1s[i].isAlive){
         float x=playerRadius*cos(playerCurrentAngle);
         float y=playerRadius*sin(playerCurrentAngle);
+        switch(currentBulletType){
+         case BULLET1_LEVEL1:    bullet1s[i] = new Bullet1(width / 2 +x, height / 2 +y, playerCurrentAngle); break;
+          case BULLET1_LEVEL2:    bullet1s[i] = new Bullet1_update1(width / 2 +x, height / 2 +y, playerCurrentAngle); break;
+        }
+      
         bullet1s[i] = new Bullet1(width / 2 +x, height / 2 +y, playerCurrentAngle);
         towerTopXOffset = towerTopXMaxOffset;
         break;
@@ -71,7 +77,9 @@ class Player1 {
     return item != null && item.isAlive && dist(width/2+(playerRadius-towerTopXOffset)*cos(playerCurrentAngle), height / 2+(playerRadius-towerTopXOffset)*sin(playerCurrentAngle), item.x, item.y) <= hitRadius + item.getRadius();
     
   }
-  
+  void setBulletType(int type){
+    currentBulletType = type;
+  }
 
 }
 

@@ -10,7 +10,8 @@ PImage player1Img,bullet1Img,bullet3Img;
 PImage player2Img,bullet2Img,bullet4Img;
 PImage enemy1Img,enemy2Img;
 PImage itemImg,item2Img,item3Img,item4Img;
-
+final int BULLET1_LEVEL1 = 0;
+final int BULLET1_LEVEL2 = 1;
 PFont font;
 
 int score = 0;
