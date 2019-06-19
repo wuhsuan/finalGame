@@ -2,7 +2,7 @@ class SpecialEnemy1 extends Enemy1 {
   SpecialEnemy1(float x, float y ){
     super(x,y);
     scoreValue = 5;
-    health = 100;
+    health = 200; 
     size=60;
      speed = 0.25;
   }
