@@ -6,10 +6,10 @@ final int GAME_OVER = 2;
 int gameState = GAME_RUN;
 
 PImage bg, modelImg, modelUpgrateImg;
-PImage player1Img,bullet1Img;
-PImage player2Img,bullet2Img;
+PImage player1Img,bullet1Img,bullet3Img;
+PImage player2Img,bullet2Img,bullet4Img;
 PImage enemy1Img,enemy2Img;
-PImage itemImg,item1Img;
+PImage itemImg,item2Img,item3Img,item4Img;
 
 PFont font;
 
@@ -50,8 +50,11 @@ void setup(){
   player2Img = loadImage("img/player2.png");
   bullet1Img = loadImage("img/bullet1.png");
   bullet2Img = loadImage("img/bullet2.png");
+  bullet3Img = loadImage("img/bullet3.png");
+  bullet4Img = loadImage("img/bullet4.png");
   itemImg = loadImage("img/item.png");
-  item1Img=loadImage("img/item1.png");
+  item2Img = loadImage("img/item2.png");
+  
   font = createFont("ObelixPro.ttf", 96, true);
   textFont(font);
   

@@ -12,7 +12,7 @@ Item(float x, float y){
    speed = 0.5;
    this.x = x;
     this.y = y;
-    img=itemImg;
+    img=item2Img;
    targetAngle = atan2(height / 2 - y, width / 2 - x);
   }
   
