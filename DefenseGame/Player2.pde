@@ -2,6 +2,7 @@ class Player2 extends Player1{
    int playerRadius =80;
    boolean isTwo = true;
    float playerCurrentAngle = PI;
+   int currentBulletType =BULLET2_LEVEL1;
   Bullet2 [] bullet2s;
   Player2(){
     super();
@@ -35,7 +36,9 @@ class Player2 extends Player1{
       if(bullet2s[i] == null || !bullet2s[i].isAlive){
         float x=playerRadius*cos(playerCurrentAngle);
         float y=playerRadius*sin(playerCurrentAngle);
-        bullet2s[i] = new Bullet2(width / 2 +x, height / 2 +y, playerCurrentAngle);
+        if(currentBulletType==BULLET2_LEVEL1) { bullet2s[i] = new Bullet2(width / 2 +x, height / 2 +y, playerCurrentAngle); break;}
+         if(currentBulletType==BULLET2_LEVEL2) {bullet2s[i] = new Bullet2update1(width / 2 +x, height / 2 +y, playerCurrentAngle); break;}
+        
         towerTopXOffset = towerTopXMaxOffset;
         break;
       }
@@ -62,7 +65,7 @@ class Player2 extends Player1{
     popStyle();
   }
   boolean isHit(Item item){
-    
+    currentBulletType =BULLET2_LEVEL2;
     return item != null && item.isAlive && dist(width/2+(playerRadius-towerTopXOffset)*cos(playerCurrentAngle), height / 2+(playerRadius-towerTopXOffset)*sin(playerCurrentAngle), item.x, item.y) <= hitRadius + item.getRadius();
     
   }

@@ -28,6 +28,7 @@ class Model{
     pushStyle();
     imageMode(CENTER);
     image(modelImg, width / 2, height / 2);
+    color(#FFFFFF);
     rect(10,10,modelHealth,10);
   }
 }

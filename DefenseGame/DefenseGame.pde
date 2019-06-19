@@ -12,6 +12,8 @@ PImage enemy1Img,enemy2Img;
 PImage itemImg,item2Img,item3Img;
 final int BULLET1_LEVEL1 = 0;
 final int BULLET1_LEVEL2 = 1;
+final int BULLET2_LEVEL1 = 0;
+final int BULLET2_LEVEL2 = 1;
 PFont font;
 
 int score = 0;
@@ -22,7 +24,7 @@ Enemy1 enemy1s[];
 Enemy2 enemy2s[];
 Item[] items;
 Player2 player2;
-int maxEnemyCount = 16;
+int maxEnemyCount = 12;
 //float specialEnemySpawnChance = 0.05;
 int maxItemCount = 5;
 int spawnInterval = 15;
@@ -183,9 +185,16 @@ void draw(){
          items[i].eat();
         
          player1.setBulletType(1);
+         
+       
+         
       }
       if(player2.isHit(items[i])){
          items[i].eat();
+        player2.setBulletType(1);
+        
+        
+        
       }
     }}
     
