@@ -9,7 +9,7 @@ PImage bg, modelImg, modelUpgrateImg;
 PImage player1Img,bullet1Img,bullet3Img;
 PImage player2Img,bullet2Img,bullet4Img;
 PImage enemy1Img,enemy2Img;
-PImage itemImg,item2Img,item3Img;
+PImage item1Img,item2Img,item3Img;
 final int BULLET1_LEVEL1 = 0;
 final int BULLET1_LEVEL2 = 1;
 final int BULLET2_LEVEL1 = 0;
@@ -23,6 +23,7 @@ Player1 player1;
 Enemy1 enemy1s[];
 Enemy2 enemy2s[];
 Item[] items;
+Item_1[] items_1;
 Player2 player2;
 int maxEnemyCount = 12;
 //float specialEnemySpawnChance = 0.05;
@@ -54,7 +55,7 @@ void setup(){
   bullet2Img = loadImage("img/bullet2.png");
   bullet3Img = loadImage("img/bullet3.png");
   bullet4Img = loadImage("img/bullet4.png");
-  itemImg = loadImage("img/item.png");
+  item1Img = loadImage("img/item1.png");
   item2Img = loadImage("img/item2.png");
   item3Img = loadImage("img/item3.png");
   
@@ -67,7 +68,7 @@ void setup(){
   player1 = new Player1();
   items= new Item[maxItemCount];
   player2 = new Player2();
-  
+  items_1=new Item_1[maxItemCount];
   
 }
 //initiallize item position
@@ -178,7 +179,11 @@ void draw(){
         }
       }
     }
-    
+   
+     
+     
+     
+   
     for(int i = 0; i < items.length; i++){
       if(items[i] != null && items[i].isAlive){
         items[i].update();
@@ -187,7 +192,10 @@ void draw(){
          items[i].eat();
         
          player1.setBulletType(1);
-         
+         items[i].timer();
+   
+        
+  }
        
          
       }
@@ -198,7 +206,13 @@ void draw(){
         
         
       }
-    }}
+        
+    }
+    
+  
+    
+    
+    
     
     if(gameState == GAME_OVER){
       drawGameOverText();
@@ -208,6 +222,8 @@ void draw(){
     case GAME_OVER:
         enemy1s = new Enemy1[maxEnemyCount];
             enemy2s = new Enemy2[maxEnemyCount];
+            player2.setBulletType(0);
+             player1.setBulletType(0);
             player1 = new Player1();
             player2 = new Player2();
             score = 0;

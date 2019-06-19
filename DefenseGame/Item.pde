@@ -9,10 +9,10 @@ class Item {
 //constructor
 Item(float x, float y){
     
-   speed = 2;
+   speed = .6;
    this.x = x;
     this.y = y;
-    img=item3Img;
+    img=item1Img;
    targetAngle = atan2(height / 2 - y, width / 2 - x);
   }
   
@@ -29,6 +29,15 @@ Item(float x, float y){
   
   
   }
+  
+  
+  void timer(){
+   float timer=0;
+          timer++;
+          if(timer==600){
+          
+          player1.setBulletType(0);}
+          }
    void move() {
            x += cos(targetAngle) * speed;
       y += sin(targetAngle) * speed;

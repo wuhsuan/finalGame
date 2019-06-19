@@ -5,10 +5,12 @@ class Item_1  extends Item {
     super(x,y);
     img=item2Img;
     targetAngle = atan2(height / 2 - y, width / 2 - x);
-    speed=1;
+    speed=.2;
     
   }
   
-
+   
   
   }
+
+}

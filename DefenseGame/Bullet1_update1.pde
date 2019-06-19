@@ -10,5 +10,9 @@ void display() {
   super.display();
  image(img,0,0);
 }
+void timer(){
+  
 
+
+}
 }

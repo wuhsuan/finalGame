@@ -9,6 +9,7 @@ class Enemy1 {
   int size;
   boolean isOne;
    float damage;
+   Item_1 items[];
   Enemy1(float x, float y){
     this.x = x;
     this.y = y;
@@ -25,6 +26,7 @@ class Enemy1 {
   void update() {
     x += cos(targetAngle) * speed;
     y += sin(targetAngle) * speed;
+   
   }
   
   void display() {
