@@ -186,11 +186,19 @@ void draw(){
         
          player1.setBulletType(1);
          
+         float timer =0;
+         timer++;
+         if(timer==300){
+         player1.setBulletType(0);
+         
+         }
+         
        
          
       }
       if(player2.isHit(items[i])){
          items[i].eat();
+          
         player2.setBulletType(1);
         
         
@@ -206,11 +214,14 @@ void draw(){
     case GAME_OVER:
         enemy1s = new Enemy1[maxEnemyCount];
             enemy2s = new Enemy2[maxEnemyCount];
+            player1.setBulletType(0);
+            player2.setBulletType(0);
             player1 = new Player1();
             player2 = new Player2();
             score = 0;
             model = new Model();
             items= new Item[maxItemCount];
+            
     break;
   }
 }
@@ -253,6 +264,7 @@ void keyPressed(){
             cClockWise1 = false;
             clockWise2 = false;
             cClockWise2 = false;
+           
           break;
         }
       

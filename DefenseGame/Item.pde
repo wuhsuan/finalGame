@@ -24,9 +24,6 @@ Item(float x, float y){
   
   boolean eat(){
   
- 
-  
-  
   return isAlive=false;
   
   

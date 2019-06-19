@@ -42,9 +42,9 @@ class Player1 {
         float y=playerRadius*sin(playerCurrentAngle);
         
          if(currentBulletType==BULLET1_LEVEL1) { bullet1s[i] = new Bullet1(width / 2 +x, height / 2 +y, playerCurrentAngle); break;}
-         if(currentBulletType==BULLET1_LEVEL2) {   bullet1s[i] = new Bullet1_update1(width / 2 +x, height / 2 +y, playerCurrentAngle); break;}
+         if(currentBulletType==BULLET1_LEVEL2) { bullet1s[i] = new Bullet1_update1(width / 2 +x, height / 2 +y, playerCurrentAngle); break;}
       
-        
+         
         towerTopXOffset = towerTopXMaxOffset;
         break;
       
@@ -72,7 +72,7 @@ class Player1 {
   }
   //item detaction
    boolean isHit(Item item){
-    currentBulletType =BULLET1_LEVEL2;
+    
     return item != null && item.isAlive && dist(width/2+(playerRadius-towerTopXOffset)*cos(playerCurrentAngle), height / 2+(playerRadius-towerTopXOffset)*sin(playerCurrentAngle), item.x, item.y) <= hitRadius + item.getRadius();
     
   }
