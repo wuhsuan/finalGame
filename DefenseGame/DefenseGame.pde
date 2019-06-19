@@ -58,7 +58,7 @@ void setup(){
   item2Img = loadImage("img/item2.png");
   item3Img = loadImage("img/item3.png");
   
-  font = createFont("ObelixPro.ttf", 96, true);
+  font = createFont("power_pixel-7.ttf", 96, true);
   textFont(font);
   
   model = new Model();
@@ -323,22 +323,22 @@ void drawScore(){
   textAlign(CENTER, CENTER);
   textSize(scoreTextSize);
   fill(#DCDCDC, 100);
-  text(score, width / 2, (height / 2)-10  );
+  text(score, width / 2, (height / 2)  );
 }
 
 void drawGameOverText(){
   textAlign(CENTER, CENTER);
-  textSize(64);
+  textSize(88);
   fill(0, 120);
-  text("GAME OVER", width / 2 + 3, height / 2 - 120 + 3);
+  text("GAME OVER", width / 2 + 3, height / 2 + 180 + 3);
   fill(#ff0000);
-  text("GAME OVER", width / 2, height / 2 - 120);
+  text("GAME OVER", width / 2, height / 2 + 180);
   
   textSize(32);
   fill(0, 120);
   text("SCORE: " + score, width / 2 + 3, height / 2 + 3);
-  text("click R to restart", width / 2 + 3, height / 2 + 200 + 3);
+  text("click R to restart", width / 2 + 3, height / 2 + 250 + 3);
   fill(#ffffff);
   text("SCORE: " + score, width / 2, height / 2);
-  text("click R to restart", width / 2, height / 2 + 200);
+  text("click R to restart", width / 2, height / 2 + 250);
 }
