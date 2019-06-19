@@ -28,7 +28,7 @@ Item(float x, float y){
   
   
   return isAlive=false;
- 
+  
   
   
   }

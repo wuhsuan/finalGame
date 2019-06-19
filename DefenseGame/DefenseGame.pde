@@ -185,9 +185,15 @@ void draw(){
          items[i].eat();
         
          player1.setBulletType(1);
+         
+       
+         
       }
       if(player2.isHit(items[i])){
          items[i].eat();
+        player2.setBulletType(1);
+        
+        
         
       }
     }}
