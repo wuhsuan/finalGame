@@ -40,8 +40,8 @@ float scoreTextSize = scoreTextMinSize;
 //spawn chances
 
 void setup(){
-  size(512, 512, P2D);
-  bg = loadImage("img/bg.png");
+  size(800, 800, P2D);
+  bg = loadImage("img/bg.jpg");
   modelImg = loadImage("img/model.png");
   modelUpgrateImg = loadImage("img/modelupgrate.png");
   enemy1Img = loadImage("img/enemy1.png");
@@ -61,6 +61,7 @@ void setup(){
   player1 = new Player1();
   items= new Item[maxItemCount];
   player2 = new Player2();
+  
 }
 //initiallize item position
 void spawnItem(){
@@ -113,11 +114,9 @@ void draw(){
   switch(gameState){
     case GAME_RUN:  
     // draw background
-    for(int i = - bg.width; i < width + bg.width; i += bg.width){
-      for(int j = - bg.height; j < height + bg.height; j += bg.height){
-        image(bg, i, j);
-      }
-    }
+   
+       
+      image(bg, 0, 0);
     
     drawScore();
     
