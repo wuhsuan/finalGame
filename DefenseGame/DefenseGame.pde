@@ -33,8 +33,8 @@ boolean clockWise1,clockWise2;
 boolean cClockWise1,cClockWise2;
 boolean shoot1,shoot2;
 
-float scoreTextMinSize = 72;
-float scoreTextMaxSize = 96;
+float scoreTextMinSize = 200;
+float scoreTextMaxSize =250;
 float scoreTextSize = scoreTextMinSize;
 
 //spawn chances
@@ -295,8 +295,8 @@ void drawScore(){
   scoreTextSize = lerp(scoreTextSize, scoreTextMinSize, 0.12);
   textAlign(CENTER, CENTER);
   textSize(scoreTextSize);
-  fill(#ffffff, 100);
-  text(score, width / 2, height / 2 + 100);
+  fill(#DCDCDC, 100);
+  text(score, width / 2, (height / 2)-10  );
 }
 
 void drawGameOverText(){

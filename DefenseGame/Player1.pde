@@ -64,7 +64,14 @@ class Player1 {
     popMatrix();
     popStyle();
   }
+  //item detaction
+ /*  boolean isHit(Item enemy){
+    
+    return enemy != null && enemy.isAlive && dist(width / 2, height / 2, enemy.x, enemy.y) <= hitRadius + enemy.getRadius();
+    
+  }
   
+*/  
 }
 
 
