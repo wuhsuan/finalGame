@@ -7,6 +7,7 @@ class Player1 {
   int playerRadius = 80;
   float playerCurrentAngle = 0;
   boolean isOne = true;
+  float hitRadius = 26;
   
   
   Bullet1 [] bullet1s;
@@ -65,13 +66,13 @@ class Player1 {
     popStyle();
   }
   //item detaction
- /*  boolean isHit(Item enemy){
+   boolean isHit(Item item){
     
-    return enemy != null && enemy.isAlive && dist(width / 2, height / 2, enemy.x, enemy.y) <= hitRadius + enemy.getRadius();
+    return item != null && item.isAlive && dist(width / 2, height / 2, item.x, item.y) <= hitRadius + item.getRadius();
     
   }
   
-*/  
+
 }
 
 
