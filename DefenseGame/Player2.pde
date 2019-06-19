@@ -1,6 +1,7 @@
 class Player2 extends Player1{
-   int playerRadius = 180;
+   int playerRadius =80;
    boolean isTwo = true;
+   float playerCurrentAngle = PI;
   Bullet2 [] bullet2s;
   Player2(){
     super();
