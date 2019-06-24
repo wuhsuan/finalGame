@@ -9,7 +9,7 @@ PImage bg, modelImg, modelUpgrateImg;
 PImage player1Img,bullet1Img,bullet3Img;
 PImage player2Img,bullet2Img,bullet4Img;
 PImage enemy1Img,enemy2Img;
-PImage item1Img,item2Img,item3Img;
+PImage item1Img,item2Img,item3Img,itemImg;
 final int BULLET1_LEVEL1 = 0;
 final int BULLET1_LEVEL2 = 1;
 final int BULLET2_LEVEL1 = 0;
@@ -58,6 +58,7 @@ void setup(){
   item1Img = loadImage("img/item1.png");
   item2Img = loadImage("img/item2.png");
   item3Img = loadImage("img/item3.png");
+  itemImg = loadImage("img/item.png");
   
   font = createFont("power_pixel-7.ttf", 96, true);
   textFont(font);
